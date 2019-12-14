@@ -17,6 +17,7 @@ public class BallController : MonoBehaviour {
         if (canMove) {
             canMove = false;
             velocity = rb.velocity;
+            rb.velocity = Vector3.zero;
         }
     }
 
