@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using UnityEngine;
 
@@ -12,15 +13,15 @@ public class SceneController : MonoBehaviour {
         ball1 = GameObject.FindGameObjectsWithTag("FirstBall")[0].GetComponent<BallController>();
         ball2 = GameObject.FindGameObjectsWithTag("SecondBall")[0].GetComponent<BallController>();
         string[] data = File.ReadAllLines("input.txt");
-        time = float.Parse(data[0]);
+        time = float.Parse(data[0], CultureInfo.InvariantCulture);
         string[] pos1 = data[1].Split(' ');
         string[] pos2 = data[2].Split(' ');
         string[] vel1 = data[3].Split(' ');
         string[] vel2 = data[4].Split(' ');
-        setFirstPosition(new Vector3(float.Parse(pos1[0]), float.Parse(pos1[1]), float.Parse(pos1[2])));
-        setSecondPosition(new Vector3(float.Parse(pos2[0]), float.Parse(pos2[1]), float.Parse(pos2[2])));
-        ball1.setVelocity(new Vector3(float.Parse(vel1[0]), float.Parse(vel1[1]), float.Parse(vel1[2])));
-        ball2.setVelocity(new Vector3(float.Parse(vel2[0]), float.Parse(vel2[1]), float.Parse(vel2[2])));
+        setFirstPosition(new Vector3(float.Parse(pos1[0], CultureInfo.InvariantCulture), float.Parse(pos1[1], CultureInfo.InvariantCulture), float.Parse(pos1[2], CultureInfo.InvariantCulture)));
+        setSecondPosition(new Vector3(float.Parse(pos2[0], CultureInfo.InvariantCulture), float.Parse(pos2[1], CultureInfo.InvariantCulture), float.Parse(pos2[2], CultureInfo.InvariantCulture)));
+        ball1.setVelocity(new Vector3(float.Parse(vel1[0], CultureInfo.InvariantCulture), float.Parse(vel1[1], CultureInfo.InvariantCulture), float.Parse(vel1[2], CultureInfo.InvariantCulture)));
+        ball2.setVelocity(new Vector3(float.Parse(vel2[0], CultureInfo.InvariantCulture), float.Parse(vel2[1], CultureInfo.InvariantCulture), float.Parse(vel2[2], CultureInfo.InvariantCulture)));
     }
 
     public void Pause() {
